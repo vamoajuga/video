@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiryanFer</title>
     <style>
-        /* Estilos para la superposición que cubre toda la página */
+        
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
-            z-index: 1000; /* Asegura que esté encima de todo */
-            pointer-events: none; /* Bloquea interacciones con la superposición */
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1000; 
+            pointer-events: none; 
         }
 
         .video-container {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%; 
             overflow: hidden;
         }
 
@@ -33,27 +33,27 @@
             height: 100%;
         }
 
-        /* Bloquear la interacción con la página */
+        
         .disable-interaction {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0); /* Transparente pero activo para bloquear clics */
-            z-index: 999; /* Asegura que esté encima del video y la superposición */
-            pointer-events: all; /* Captura todos los eventos de clic y teclado */
+            background: rgba(255, 255, 255, 0); 
+            z-index: 999; 
+            pointer-events: all; 
         }
     </style>
 </head>
 <body>
-    <!-- Superposición para bloquear interacciones -->
+    
     <div class="overlay"></div>
     <div class="disable-interaction"></div>
 
     <div class="video-container">
         <iframe id="video-iframe" 
-                src="https://www.youtube.com/embed/njX2bu-_Vw4?autoplay=1&controls=0&mute=1&disablekb=1&modestbranding=1&rel=0&loop=1&playlist=njX2bu-_Vw4" 
+                src="https://www.youtube.com/embed/cBzo-c1jWEs?autoplay=1&controls=0&mute=1&disablekb=1&modestbranding=1&rel=0&loop=1&playlist=cBzo-c1jWEs" 
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
@@ -61,12 +61,12 @@
         </iframe>
     </div>
 
-    <!-- Carga la API de YouTube -->
+   
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         let player;
 
-        // Función que se llama cuando la API de YouTube está lista
+       
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('video-iframe', {
                 events: {
@@ -75,14 +75,14 @@
             });
         }
 
-        // Función que se llama cuando el reproductor está listo
+        
         function onPlayerReady(event) {
             event.target.playVideo();
             
-            // Desmutea el video después de 1 segundo
+            
             setTimeout(() => {
                 player.unMute();
-            }, 1000); // 1000 milisegundos = 1 segundo
+            }, 1000); 
         }
     </script>
 </body>
